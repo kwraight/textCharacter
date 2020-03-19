@@ -60,8 +60,7 @@ def GetAveFreq(dict, coi=[]):
 # get average frequency of characters of interest
     sumVal=0
     if len(coi)==0:
-        for d in dict:
-            sumVal=sum(dict.values())
+        sumVal=sum(dict.values())
         return sumVal
 
     for c in coi:
@@ -72,6 +71,21 @@ def GetAveFreq(dict, coi=[]):
         return 0
 
     return sumVal/len(coi)
+
+
+def GetMostPopular(dict, coi=[]):
+# get average frequency of characters of interest
+    stat=0
+    mpc=[]
+
+    for c in coi:
+        if dict[c]==stat:
+            mpc.append(c)
+        if dict[c]> stat:
+            stat=dict[c]
+            mpc=[c]
+
+    return stat, mpc
 
 def PlotFreq(dict):
 # bar chart of character frquencies
@@ -122,8 +136,14 @@ def main():
 
     aveVowels=GetAveFreq(freqDict, "aeiou")
     aveConsonants=GetAveFreq(freqDict, "bcdfghjklmnpqrstvwxyz")
-    print("average vowel frquency:", aveVowels)
-    print("average consonants frquency:", aveConsonants)
+    print("average vowel frequency:", aveVowels)
+    print("average consonants frequency:", aveConsonants)
+
+    mpv, popVowels=GetMostPopular(freqDict, "aeiou")
+    mpc, popConsonants=GetMostPopular(freqDict, "bcdfghjklmnpqrstvwxyz")
+    print("most popular vowels ("+str(mpv)+"):", popVowels)
+    print("most popular consonants ("+str(mpc)+"):", popConsonants)
+
     '''
     get averages
     get most popular
