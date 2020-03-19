@@ -42,10 +42,16 @@ def GetArgs():
 ######################################
 
 def GetRawList(filename):
-#read file and raw list of characters
+    #read file and raw list of characters
+    retArr= [ch for ch in open(filename).read() if ch != '\n']
 
-    retArr= [ch for ch in open(filename).read() if ch != '\n' if ch != ' ']
+    return retArr
 
+def GetCleanList(arr, bads):
+#get list with elements containing bad characters removed
+    retArr=arr
+    for b in bads:
+        retArr= [ elem for elem in retArr if b not in elem]
     return retArr
 
 def GetFreqList(arr):
@@ -64,7 +70,10 @@ def GetAveFreq(dict, coi=[]):
         return sumVal
 
     for c in coi:
-        sumVal+=dict[c]
+        try:
+            sumVal+=dict[c]
+        except KeyError:
+            continue
 
     if sumVal==0:
         print("GetAveFreq >>> No frequencies found. returning 0")
@@ -79,28 +88,48 @@ def GetMostPopular(dict, coi=[]):
     mpc=[]
 
     for c in coi:
-        if dict[c]==stat:
+        try:
+            freq=dict[c]
+        except KeyError:
+            continue
+        if freq==stat:
             mpc.append(c)
-        if dict[c]> stat:
-            stat=dict[c]
+        if freq> stat:
+            stat=freq
             mpc=[c]
 
     return stat, mpc
 
+def GetAveWordLength(filename):
+# get average word length
+
+    sentence = open(filename).read()
+    filtered = ''.join(filter(lambda x: x not in '".,;!-', sentence))
+    words = [word for word in filtered.split() if word]
+    avg = sum(map(len, words))/len(words)
+    return avg
+
+
 def PlotFreq(dict):
 # bar chart of character frquencies
+    print("### Plotting...")
 
     sorted_dict = sorted(dict.items(), key=operator.itemgetter(1), reverse=True)
 
-    print(sorted_dict)
-
     objects= [i[0] for i in sorted_dict]
+    for o in range(0,len(objects),1):
+        try:
+            deco=objects[o].decode("utf-8")
+        except UnicodeDecodeError:
+            deco=objects[o].encode('hex')
+            print("replace:",objects[o],"-->",deco)
+            objects[o]="*"+deco
     y_pos = np.arange(len(objects))
     frequencies= [i[1] for i in sorted_dict]
 
-    print(objects)
-    print(y_pos)
-    print(frequencies)
+    print("objects:",objects)
+    print("y_pos:",y_pos)
+    print("frequencies:",frequencies)
 
     plt.bar(y_pos, frequencies, align='center', alpha=0.5)
     plt.xticks(y_pos, objects)
@@ -125,13 +154,15 @@ def main():
 
     # read in all characters from file (remove whitespace and new lines)
     rawList= GetRawList(argDict['infile'])
+    # clean list of bad characters (e.g. whitespaces)
+    cleanList= GetCleanList(rawList, [" ", "\\"])
     # make all characgters lower case
-    lowList= [ch.lower() for ch in rawList]
+    lowList= [ch.lower() for ch in cleanList]
     # count frequency for each unique character
     freqDict = {i:lowList.count(i) for i in lowList}
 
     print(freqDict)
-    print("total # characters:", len(rawList))
+    print("total # characters:", len(cleanList))
     print("total unique characters:", len(freqDict))
 
     aveVowels=GetAveFreq(freqDict, "aeiou")
@@ -144,14 +175,10 @@ def main():
     print("most popular vowels ("+str(mpv)+"):", popVowels)
     print("most popular consonants ("+str(mpc)+"):", popConsonants)
 
-    '''
-    get averages
-    get most popular
-    get word length
-    '''
+    awl = GetAveWordLength(argDict['infile'])
+    print("average word length:", awl)
 
-    return
-
+    # Plotting
     if argDict['plot']==1:
         PlotFreq(freqDict)
 
@@ -165,9 +192,3 @@ if __name__ == "__main__":
     end = time.time()
     print "\n+++ Total scan time: ",(end-start),"seconds +++\n"
     print "### out",__file__,"###"
-
-'''
-plt.plot([1, 2, 3, 4])
-plt.ylabel('some numbers')
-plt.show()
-'''
