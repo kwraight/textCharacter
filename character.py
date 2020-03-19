@@ -55,6 +55,24 @@ def GetFreqList(arr):
 
     return retDict
 
+
+def GetAveFreq(dict, coi=[]):
+# get average frequency of characters of interest
+    sumVal=0
+    if len(coi)==0:
+        for d in dict:
+            sumVal=sum(dict.values())
+        return sumVal
+
+    for c in coi:
+        sumVal+=dict[c]
+
+    if sumVal==0:
+        print("GetAveFreq >>> No frequencies found. returning 0")
+        return 0
+
+    return sumVal/len(coi)
+
 def PlotFreq(dict):
 # bar chart of character frquencies
 
@@ -85,7 +103,7 @@ def PlotFreq(dict):
 def main():
 
     argDict=GetArgs()
-    print "argDict:",argDict
+    print("argDict:",argDict)
 
     if "NYS" in argDict['infile']:
         print("No input filename specificed. Exiting")
@@ -101,6 +119,18 @@ def main():
     print(freqDict)
     print("total # characters:", len(rawList))
     print("total unique characters:", len(freqDict))
+
+    aveVowels=GetAveFreq(freqDict, "aeiou")
+    aveConsonants=GetAveFreq(freqDict, "bcdfghjklmnpqrstvwxyz")
+    print("average vowel frquency:", aveVowels)
+    print("average consonants frquency:", aveConsonants)
+    '''
+    get averages
+    get most popular
+    get word length
+    '''
+
+    return
 
     if argDict['plot']==1:
         PlotFreq(freqDict)
