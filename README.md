@@ -6,7 +6,8 @@ Python based text analyser.
 Compare simple text across a few (European) languages: English, Dutch, French, German.
 
 Compare:
-* total characters
+* total characters in text
+* total unique characters
 * frequency of each character (first order)
 * frequency of character combinations (second order)
 
