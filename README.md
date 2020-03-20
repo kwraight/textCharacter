@@ -77,7 +77,7 @@ Example output:
 ('most popular consonants (6):', ['s'])
 ('average word length:', 4)
 ```
-[examplePlot]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+[examplePlot]: https://github.com/kwraight/textCharacteric/examplePlot.png "Example Plot for example.txt"
 
 
 **Command**
