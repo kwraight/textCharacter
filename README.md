@@ -1,11 +1,30 @@
 # textCharacter
- some basic text characterisation
+Python(2)[1] based text analyser.
 
-Python based text analyser.
+**Requirements**
+* matplotlib.pyplot
+* numpy
+* time
+* argparse
+* operator
+* character
 
-Compare simple text across a few (European) languages: English, Dutch, French, German.
+[1] May work with Python 3 but not tried
 
-Compare:
+## Motivation
+*How to compare different languages in text form?*
+
+Compare text across a few (European) languages: English, Dutch, French, German.
+
+1. Make text file in English
+2. Translate file to different (European) languages using [Google translate](https://translate.google.co.uk)
+3. Use *character.py* to characterise individual text file
+4. Use *compare.py* to compare (via characterisation) across text files in different languages
+
+## Characterisation
+*How to characterise text?*
+
+Invent metric for comparison:
 * total characters in text
 * total unique characters
 * average vowel frequency
@@ -18,3 +37,13 @@ Compare:
 Plot:
 * histogram of frequency (basic)
 * some kind of characterisation plot (TBC)
+    * some convoluted subset of metric??
+    * some multi-dimensional plot of subset of metric??
+
+## Next steps
+*Can the characterisation metric be used to train machine to distinguish languages?*
+
+**To do**
+Write code for ML
+* train algorithm
+* apply to test files
