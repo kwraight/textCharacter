@@ -1,5 +1,5 @@
 # textCharacter
-Python(2)[1] based text analyser.
+*Python2*[1] based text analyser.
 
 **Requirements**
 * matplotlib.pyplot
@@ -9,7 +9,7 @@ Python(2)[1] based text analyser.
 * operator
 * character
 
-[1] May work with Python 3 but not tried
+[1] May work with *Python3* but not tried
 
 ## Motivation
 *How to compare different languages in text form?*
