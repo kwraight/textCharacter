@@ -7,7 +7,7 @@ import operator
 
 # commandline arguments
 # specify input filename output filename
-# flag show image
+# flag show plots
 
 ######################
 ### parsing
@@ -16,7 +16,7 @@ import operator
 def GetArgs():
     parser = argparse.ArgumentParser(description=__file__)
 
-    # pass on
+    # basic inputs
     parser.add_argument('--infile', help='input filename')
     parser.add_argument('--plot', help='show plots')
 
@@ -42,7 +42,7 @@ def GetArgs():
 ######################################
 
 def GetRawList(filename):
-    #read file and raw list of characters
+# read file and raw list of characters
     retArr= [ch for ch in open(filename).read() if ch != '\n']
 
     return retArr
@@ -118,7 +118,7 @@ def PlotFreq(dict):
 
     objects= [i[0] for i in sorted_dict]
     for o in range(0,len(objects),1):
-        try:
+        try: # messy fudge to deal with accented characters
             deco=objects[o].decode("utf-8")
         except UnicodeDecodeError:
             deco=objects[o].encode('hex')
@@ -162,19 +162,23 @@ def main():
     freqDict = {i:lowList.count(i) for i in lowList}
 
     print(freqDict)
+    # all character output
     print("total # characters:", len(cleanList))
     print("total unique characters:", len(freqDict))
 
+    # average frequencies
     aveVowels=GetAveFreq(freqDict, "aeiou")
     aveConsonants=GetAveFreq(freqDict, "bcdfghjklmnpqrstvwxyz")
     print("average vowel frequency:", aveVowels)
     print("average consonants frequency:", aveConsonants)
 
+    # most popular characters
     mpv, popVowels=GetMostPopular(freqDict, "aeiou")
     mpc, popConsonants=GetMostPopular(freqDict, "bcdfghjklmnpqrstvwxyz")
     print("most popular vowels ("+str(mpv)+"):", popVowels)
     print("most popular consonants ("+str(mpc)+"):", popConsonants)
 
+    # average word length
     awl = GetAveWordLength(argDict['infile'])
     print("average word length:", awl)
 
