@@ -67,6 +67,17 @@ Guide to using code elements
 > python character.py --infile english.txt --plot 1
 
 **_Comments_**
+Example output:
+```
+('total # characters:', 69)
+('total unique characters:', 27)
+('average vowel frequency:', 4)
+('average consonants frequency:', 2)
+('most popular vowels (7):', ['e'])
+('most popular consonants (6):', ['s'])
+('average word length:', 4)
+```
+[examplePlot]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
 
 
 **Command**
