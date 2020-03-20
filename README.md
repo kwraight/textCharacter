@@ -1,5 +1,5 @@
 # textCharacter
-*Python2*[1] based text analyser.
+*Python2*[^1] based text analyser.
 
 **Requirements**
 * matplotlib.pyplot
@@ -9,7 +9,7 @@
 * operator
 * character
 
-[1] May work with *Python3* but not tried
+[^1] May work with *Python3* but not tried
 
 ## Motivation
 *How to compare different languages in text form?*
@@ -47,3 +47,52 @@ Plot:
 Write code for ML
 * train algorithm
 * apply to test files
+
+---
+## Usage
+
+Guide to using code elements
+
+### Single text file characterisation
+
+**Command**
+`character.py`
+
+| Args | Comment (default) | e.g. |
+| --- | --- | --- |
+| infile | input filename (not set) |  english.txt |
+| plot | showplots (1) | 1 |
+
+*E.g.*
+> python character.py --infile english.txt --plot 1
+
+**_Comments_**
+
+
+**Command**
+`character.py`
+
+| Args | Comment (default) | e.g. |
+| --- | --- | --- |
+| infile | input filename (not set) |  english.txt |
+| plot | showplots (1) | 1 |
+
+*E.g.*
+> python character.py --infile english.txt --plot 1
+
+**_Comments_**
+
+### Multiple text file comparison
+
+**Command**
+`compare.py`
+
+| Args | Comment (default) | e.g. |
+| --- | --- | --- |
+| infiles | input filenames (not set) |  english.txt french.txt |
+| plot | showplots (1) | 1 |
+
+*E.g.*
+> python character.py --infiles english.txt french.txt --plot 1
+
+**_Comments_**
