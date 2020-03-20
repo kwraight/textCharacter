@@ -36,7 +36,7 @@ Invent metric for comparison:
 
 Plot:
 * histogram of frequency (basic)
-* some kind of characterisation plot (TBC)
+* some kind of combined characterisation plot (TBC)
     * some convoluted subset of metric??
     * some multi-dimensional plot of subset of metric??
 
