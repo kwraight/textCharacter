@@ -1,2 +1,3 @@
 
-*.txt
+*.txt    #Exclude all txt
+!example.txt #Except for example.txt
