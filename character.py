@@ -3,6 +3,8 @@ import numpy as np
 import time
 import argparse
 import operator
+import pandas as pd
+import radarPlot as rp
 
 
 # commandline arguments
@@ -185,6 +187,18 @@ def main():
     # Plotting
     if argDict['plot']==1:
         PlotFreq(freqDict)
+
+        df = pd.DataFrame({
+        'group': [argDict['infile']],
+        'uniques': [len(freqDict)],
+        'AWL': [awl],
+        'aveVows': [aveVowels],
+        'MPV': [mpv],
+        'aveCons': [aveConsonants],
+        'MPC': [mpc]
+        })
+
+        rp.MakeRadar(df)
 
     return
 
