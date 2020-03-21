@@ -77,8 +77,8 @@ Example output:
 ('most popular consonants (6):', ['s'])
 ('average word length:', 4)
 ```
-![](examplePlot.png)
-
+![](exampleBar.png)
+![](exampleRadar.png)
 
 **Command**
 `character.py`
