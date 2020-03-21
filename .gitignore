@@ -1,2 +1,3 @@
 *.txt
 !example.txt 
+radarPlot.pyc
