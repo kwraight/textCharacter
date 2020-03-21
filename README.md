@@ -25,12 +25,15 @@ Compare text across a few (European) languages: English, Dutch, French, German.
 *How to characterise text?*
 
 Invent metric for comparison:
+* average word length (`AWL`)
 * total characters in text
-* total unique characters
-* average vowel frequency
-* average consonant frequency
-* most frequent vowel
-* most frequent consonant
+* total unique characters (`uniques`)
+* average vowel frequency (`aveVows`)
+* average consonant frequency (`aveCons`)
+* most popular vowel
+* most popular vowel frequency (`MPV`)
+* most popular consonant
+* most popular consonant frequency (`MPC`)
 * frequency of each character (first order)
 * frequency of character combinations (second order)
 
