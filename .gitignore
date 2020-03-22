@@ -1,4 +1,5 @@
 *.txt
-!example.txt 
+!exampleEnglish.txt
+!exampleFrench.txt 
 radarPlot.pyc
 *.pyc
