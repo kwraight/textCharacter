@@ -154,11 +154,11 @@ def main():
         print("No input filename specificed. Exiting")
         return
 
-    # read in all characters from file (remove whitespace and new lines)
+    # read in all characters from file (remove new lines)
     rawList= GetRawList(argDict['infile'])
     # clean list of bad characters (e.g. whitespaces)
     cleanList= GetCleanList(rawList, [" ", "\\"])
-    # make all characgters lower case
+    # make all characters lower case
     lowList= [ch.lower() for ch in cleanList]
     # count frequency for each unique character
     freqDict = {i:lowList.count(i) for i in lowList}
