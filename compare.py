@@ -59,8 +59,10 @@ def GetCharacteristics(filename):
             'uniques': len(freqDict),
             'aveVows': chr.GetAveFreq(freqDict, "aeiou"),
             'MPV': mpv,
+            'popVow': popVowels,
             'aveCons': chr.GetAveFreq(freqDict, "bcdfghjklmnpqrstvwxyz"),
             'MPC': mpc,
+            'popCon': popConsonants,
             'AWL': chr.GetAveWordLength(filename)
             }
     # all character output
@@ -111,7 +113,9 @@ def main():
     'aveVows': [],
     'MPV': [],
     'aveCons': [],
-    'MPC': []
+    'MPC': [],
+    'popCon': [],
+    'popVow': []
     }
 
     for f in argDict['infiles']:
@@ -125,16 +129,18 @@ def main():
         dataDict['MPV'].append(tempDict['MPV'])
         dataDict['aveCons'].append(tempDict['aveCons'])
         dataDict['MPC'].append(tempDict['MPC'])
+        dataDict['popVow'].append(tempDict['popVow'])
+        dataDict['popCon'].append(tempDict['popCon'])
 
     df= pd.DataFrame.from_dict(dataDict)
 
     # Plotting
     if argDict['plot']==1:
-        PlotComparison(df)
+        PlotComparison(df[['group','uniques','AWL','aveVows','MPV','aveCons','MPC']])
 
 
     print("### Comparison Table")
-    print(df[['group','uniques','AWL','aveVows','MPV','aveCons','MPC']].to_string(index=False))
+    print(df[['group','uniques','AWL','aveVows','MPV','popVow','aveCons','MPC','popCon']].to_string(index=False))
 
     return
 
