@@ -198,7 +198,7 @@ def main():
         'MPC': [mpc]
         })
 
-        rp.MakeRadar(df)
+        rp.MakeRadar(df[['group','uniques','AWL','aveVows','MPV','aveCons','MPC']])
 
     return
 
