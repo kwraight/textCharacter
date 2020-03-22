@@ -27,7 +27,7 @@ def GetArgs():
 
     print "args:",args
 
-    argDict={'infile':[], 'plot':1 }
+    argDict={'infiles':[], 'plot':1 }
 
     for a in vars(args).iteritems():
         if not a[1]==None:
