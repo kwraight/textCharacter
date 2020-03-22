@@ -80,8 +80,8 @@ Example output:
 ('most popular consonants (6):', ['s'])
 ('average word length:', 4)
 ```
-![](exampleBar.png)
-![](exampleRadar.png)
+![](examples/exampleBar.png)
+![](examples/exampleRadar.png)
 
 **Command**
 `character.py`
@@ -110,3 +110,11 @@ Example output:
 > python character.py --infiles english.txt french.txt --plot 1
 
 **_Comments_**
+Example output:
+```
+### Comparison Table
+                       group  uniques  AWL  aveVows  MPV  aveCons  MPC
+ examples/exampleEnglish.txt       27    4        4    7        2    6
+  examples/exampleFrench.txt       20    4        6   18        2    8
+```
+![](examples/exampleComp.png)
