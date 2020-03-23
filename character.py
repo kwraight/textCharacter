@@ -164,22 +164,21 @@ def main():
     freqDict = {i:lowList.count(i) for i in lowList}
 
     print(freqDict)
+
+    print("### Characteristic Table")
     # all character output
     print("total # characters:", len(cleanList))
     print("total unique characters:", len(freqDict))
-
     # average frequencies
     aveVowels=GetAveFreq(freqDict, "aeiou")
     aveConsonants=GetAveFreq(freqDict, "bcdfghjklmnpqrstvwxyz")
     print("average vowel frequency:", aveVowels)
     print("average consonants frequency:", aveConsonants)
-
     # most popular characters
     mpv, popVowels=GetMostPopular(freqDict, "aeiou")
     mpc, popConsonants=GetMostPopular(freqDict, "bcdfghjklmnpqrstvwxyz")
     print("most popular vowels ("+str(mpv)+"):", popVowels)
     print("most popular consonants ("+str(mpc)+"):", popConsonants)
-
     # average word length
     awl = GetAveWordLength(argDict['infile'])
     print("average word length:", awl)
