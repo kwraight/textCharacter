@@ -72,6 +72,7 @@ Guide to using code elements
 **_Comments_**
 Example output:
 ```
+### Characteristic Table
 ('total # characters:', 69)
 ('total unique characters:', 27)
 ('average vowel frequency:', 4)
