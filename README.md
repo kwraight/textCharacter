@@ -9,6 +9,8 @@
 * argparse
 * operator
 
+**NB** [Docker](https://www.docker.com/products/docker-desktop) file included. Instructions [below][docker]
+
 [^1] May work with *Python3* but not tried
 
 ## Motivation
@@ -119,3 +121,20 @@ Example output:
   examples/exampleFrench.txt       20    4        6   18        2    8
 ```
 ![](examples/exampleComp.png)
+
+---
+## Running via Docker
+[docker]
+If you have a docker installation follow this recipe to generate a container
+
+1. Use the repository's Dockerfile to generate the local image:
+
+> docker build -t textcharacter .
+
+2. Open an container with X11 ports set (see images from container):
+
+> docker run -ti --rm -e DISPLAY=${HOSTNAME}:0 -v /tmp/.X11-unix:/tmp/.X11-unix textcharacter
+
+3. Can now run commands as above. E.g.
+
+> cd textCharacter; python character.py --infile examples/exampleEnglish.txt
