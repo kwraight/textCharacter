@@ -1,5 +1,5 @@
 # textCharacter
-*Python2*[1] based text analyser.
+*Python2*[^1] based text analyser.
 
 **Requirements**
 * matplotlib.pyplot
@@ -11,8 +11,7 @@
 
 **NB** [Docker](https://www.docker.com/products/docker-desktop) file included. Instructions [below](#running-via-docker)
 
-#### 1 Note One
-[1]:#-note-one May work with *Python3* but not tried
+[^1]: May work with *Python3* but not tried
 
 ## Motivation
 *How to compare different languages in text form?*
