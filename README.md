@@ -125,7 +125,7 @@ Example output:
 ---
 ## Running via Docker
 
-If you have a docker installation follow this recipe to generate a container
+If you have a docker installation, you can find the dockerHub repository [here](https://hub.docker.com/repository/docker/kwraight/textcharacter). Alternatively you can use this recipe to generate a dicker container.
 
 1. Use the repository's Dockerfile to generate the local image:
 
