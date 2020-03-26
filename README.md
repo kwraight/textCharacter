@@ -49,9 +49,10 @@ Plot:
 *Can the characterisation metric be used to train machine to distinguish languages?*
 
 **To do**
-Write code for ML
-* train algorithm
-* apply to test files
+Use simple ML algorithm, e.g. from [mindsdb](https://mindsdb.github.io/mindsdb/docs/basic-mindsdb)
+* get examples of texts in different languages that can be characterised (make csv table)
+* train algorithm on text (csv file)
+* apply to test files: decide language based on characteristics
 
 ---
 ## Usage
