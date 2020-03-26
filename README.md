@@ -3,11 +3,11 @@
 
 **Requirements**
 * matplotlib.pyplot
+* pandas
 * numpy
 * time
 * argparse
 * operator
-* character
 
 [^1] May work with *Python3* but not tried
 
