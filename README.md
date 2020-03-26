@@ -9,7 +9,7 @@
 * argparse
 * operator
 
-**NB** [Docker](https://www.docker.com/products/docker-desktop) file included. Instructions [below][docker]
+**NB** [Docker](https://www.docker.com/products/docker-desktop) file included. Instructions [below][#running-via-docker]
 
 [^1] May work with *Python3* but not tried
 
@@ -124,7 +124,7 @@ Example output:
 
 ---
 ## Running via Docker
-[docker]
+
 If you have a docker installation follow this recipe to generate a container
 
 1. Use the repository's Dockerfile to generate the local image:
