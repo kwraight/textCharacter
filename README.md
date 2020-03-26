@@ -9,7 +9,7 @@
 * argparse
 * operator
 
-**NB** [Docker](https://www.docker.com/products/docker-desktop) file included. Instructions [below][#running-via-docker]
+**NB** [Docker](https://www.docker.com/products/docker-desktop) file included. Instructions [below](#running-via-docker)
 
 [^1] May work with *Python3* but not tried
 
