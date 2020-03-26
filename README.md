@@ -132,8 +132,15 @@ If you have a docker installation follow this recipe to generate a container
 > docker build -t textcharacter .
 
 2. Open an container with X11 ports set (see images from container):
+There is a trick needed here to set environment display variables.
 
-> docker run -ti --rm -e DISPLAY=${HOSTNAME}:0 -v /tmp/.X11-unix:/tmp/.X11-unix textcharacter
+  a. For Mac, set *DISPLAY=${HOSTNAME}:0*. E.g.
+
+  > docker run -ti --rm -e DISPLAY=${HOSTNAME}:0 -v /tmp/.X11-unix:/tmp/.X11-unix textcharacter
+
+  b. For Centos, set *DISPLAY=${DISPLAY}*. E.g.
+
+  > sudo docker run -ti --rm -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix textcharacter
 
 3. Can now run commands as above. E.g.
 
