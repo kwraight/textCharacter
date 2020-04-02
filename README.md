@@ -137,13 +137,19 @@ If you have a docker installation, you can find the dockerHub repository [here](
 2. Open an container with X11 ports set (see images from container).
 There is a trick needed here to set environment display variables:
 
-   a. For *Mac*, set *DISPLAY=${HOSTNAME}:0*. E.g.
-
-   > docker run -ti --rm -e DISPLAY=${HOSTNAME}:0 -v /tmp/.X11-unix:/tmp/.X11-unix textcharacter
-
-   b. For *Centos*, set *DISPLAY=${DISPLAY}*. E.g.
+   a. For *Centos*, set *DISPLAY=${DISPLAY}*. E.g.
 
    > sudo docker run -ti --rm -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix textcharacter
+
+   b. For *Mac*, set *DISPLAY=${ip}:0*. E.g.
+
+   > ip=$(ipconfig getifaddr en0)
+
+   > xhost + $ip
+
+   should get confirmation: `YOURIP being added to access control list`
+
+   > docker run -ti --rm -e DISPLAY=${ip}:0 -v /tmp/.X11-unix:/tmp/.X11-unix textcharacter
 
 3. Can now run commands as above. E.g.
 
